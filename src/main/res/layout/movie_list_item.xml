@@ -41,10 +41,10 @@
                 android:layout_below="@+id/tvTitle"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:textColor="@color/black"
                 android:textSize="12dp"
-                android:id="@+id/tvOverview"
+                android:id="@+id/tvRating"
                 />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
