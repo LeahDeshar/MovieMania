@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MovieMania</string>
+    <string name="api_key">db3aba6560a6f950f54eb4c0fa5d6d60</string>
 </resources>
