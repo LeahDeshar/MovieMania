@@ -24,9 +24,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     private int rowLayout;
     private Context context;
 
-    public MovieAdapter(ArrayList<Movie> moviesArrayList, int rowLayout, Context context) {
+    public MovieAdapter(Context context,ArrayList<Movie> moviesArrayList ) {
         this.moviesArrayList = moviesArrayList;
-        this.rowLayout = rowLayout;
         this.context = context;
     }
 
@@ -75,19 +74,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             });
         }
 
-        LinearLayout moviesLayout;
-        TextView movieTitle;
-        TextView data;
-        TextView movieDescription;
-        TextView rating;
-        ImageView poster;
-
-        public MovieViewHolder(View v) {
-            super(v);
-            moviesLayout = v.findViewById(R.id.movies_layout);
-            movieTitle = v.findViewById(R.id.tvTitle);
-            rating = v.findViewById(R.id.tvRating);
-            poster = v.findViewById(R.id.ivMovie);
-        }
+//        LinearLayout moviesLayout;
+//        TextView movieTitle;
+//
+//        TextView rating;
+//        ImageView poster;
+//
+//        public MovieViewHolder(View v) {
+//            super(v);
+//            moviesLayout = v.findViewById(R.id.movies_layout);
+//            movieTitle = v.findViewById(R.id.tvTitle);
+//            rating = v.findViewById(R.id.tvRating);
+//            poster = v.findViewById(R.id.ivMovie);
+//        }
     }
 }
