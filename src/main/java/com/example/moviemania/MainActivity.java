@@ -12,11 +12,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.moviemania.Model.Movie;
+import com.example.moviemania.model.Movie;
 import com.example.moviemania.databinding.ActivityMainBinding;
 import com.example.moviemania.view.MovieAdapter;
 import com.example.moviemania.viewmodel.MainActivityViewModel;

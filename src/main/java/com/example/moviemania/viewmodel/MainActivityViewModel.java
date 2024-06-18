@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.moviemania.Model.Movie;
-import com.example.moviemania.Model.MovieRepository;
+import com.example.moviemania.model.Movie;
+import com.example.moviemania.model.MovieRepository;
 
 import java.util.List;
 

@@ -5,13 +5,13 @@
     <data>
         <variable
             name="movie"
-            type="com.example.moviemania.Model.Movie"/>
+            type="com.example.moviemania.model.Movie"/>
     </data>
 <LinearLayout
 
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

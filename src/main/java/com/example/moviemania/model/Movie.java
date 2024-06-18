@@ -1,4 +1,4 @@
-package com.example.moviemania.Model;
+package com.example.moviemania.model;
 
 
 import android.widget.ImageView;

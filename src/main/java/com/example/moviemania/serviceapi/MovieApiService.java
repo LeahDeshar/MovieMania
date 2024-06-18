@@ -1,6 +1,6 @@
 package com.example.moviemania.serviceapi;
 
-import com.example.moviemania.Model.Result;
+import com.example.moviemania.model.Result;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
