@@ -2,6 +2,7 @@ package com.example.moviemania;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -25,18 +26,22 @@ public class MovieDetailActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         ImageView posterImageView = findViewById(R.id.movie_poster);
         TextView titleTextView = findViewById(R.id.movie_title);
         TextView overviewTextView = findViewById(R.id.movie_overview);
-        TextView ratingTextView = findViewById(R.id.movie_rating);
+        RatingBar ratingBar = findViewById(R.id.movie_rating);
+        TextView ratingValueTextView = findViewById(R.id.movie_rating_value);
 
         movie = (Movie) getIntent().getSerializableExtra("movie");
 
         if (movie != null) {
             titleTextView.setText(movie.getTitle());
             overviewTextView.setText(movie.getOverview());
-            ratingTextView.setText(String.valueOf(movie.getVoteAverage()));
+            ratingValueTextView.setText(String.valueOf(movie.getVoteAverage()));
+
+            // Set rating bar value
+            float rating = (float) (movie.getVoteAverage() / 2); // Assuming the rating is out of 10, we convert it to a 5-star scale
+            ratingBar.setRating(rating);
 
             Glide.with(this)
                     .load("https://image.tmdb.org/t/p/w500" + movie.getPosterPath())
