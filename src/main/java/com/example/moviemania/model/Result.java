@@ -7,6 +7,11 @@ import java.util.List;
 
 public class Result {
 
+
+
+    @SerializedName("id")
+    @Expose
+    private Integer id;
     @SerializedName("page")
     @Expose
     private Integer page;
@@ -25,7 +30,13 @@ public class Result {
 
     public Result() {
     }
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
     public Integer getPage() {
         return page;
     }

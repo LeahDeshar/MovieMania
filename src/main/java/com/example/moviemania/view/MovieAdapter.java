@@ -1,14 +1,17 @@
 package com.example.moviemania.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.moviemania.MovieDetailActivity;
 import com.example.moviemania.model.Movie;
 import com.example.moviemania.R;
 import com.example.moviemania.databinding.MovieListItemBinding;
@@ -37,11 +40,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public void onBindViewHolder(@NonNull MovieViewHolder holder,  int position) {
         Movie movie =moviesArrayList.get(position);
         holder.movieListItemBinding.setMovie(movie);
-//        holder.movieDescription.setText(movies.get(position).getOverview());
-//        holder.rating.setText(movies.get(position).getVoteAverage().toString());
-//        Glide.with(context)
-//                .load("https://image.tmdb.org/t/p/w500" + movies.get(position).getPosterPath())
-//                .into(holder.poster);
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, MovieDetailActivity.class);
+            intent.putExtra("movie",movie);
+            context.startActivity(intent);
+        });
+
     }
 
     @Override
@@ -56,33 +61,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             super(movieListItemBinding.getRoot());
             this.movieListItemBinding = movieListItemBinding;
 
-            movieListItemBinding.getRoot().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    int pos = getAdapterPosition();
-//                    if (pos != RecyclerView.NO_POSITION) {
-//                        Movie clickedDataItem = movies.get(pos);
-//                        Intent intent = new Intent(context, MovieDetailActivity.class);
-//                        intent.putExtra("movie", clickedDataItem);
-//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                        context.startActivity(intent);
-//                    }
-                }
-            });
+//            movieListItemBinding.getRoot().setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(v.getContext(), movieListItemBinding.getMovie().getId(), Toast.LENGTH_SHORT).show();
+//
+////                    go to MovieDetail screen when clicked and pass the movie detail to it
+//
+//
+//                }
+//            });
         }
 
-//        LinearLayout moviesLayout;
-//        TextView movieTitle;
-//
-//        TextView rating;
-//        ImageView poster;
-//
-//        public MovieViewHolder(View v) {
-//            super(v);
-//            moviesLayout = v.findViewById(R.id.movies_layout);
-//            movieTitle = v.findViewById(R.id.tvTitle);
-//            rating = v.findViewById(R.id.tvRating);
-//            poster = v.findViewById(R.id.ivMovie);
-//        }
+
     }
 }

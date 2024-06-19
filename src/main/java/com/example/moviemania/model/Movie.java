@@ -7,6 +7,7 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.BindingAdapter;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.bumptech.glide.Glide;
@@ -14,7 +15,7 @@ import com.example.moviemania.BR;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Movie extends BaseObservable {
+public class Movie extends BaseObservable implements Serializable {
 
     @SerializedName("adult")
     @Expose
