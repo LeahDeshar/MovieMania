@@ -37,7 +37,8 @@
             android:id="@+id/movie_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/CustomRatingBar"
+style="@style/CustomRatingBar"
+
             android:layout_marginTop="8dp"
             android:isIndicator="true"
             android:numStars="5"
