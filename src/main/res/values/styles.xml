@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomRatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="colorControlActivated">@color/star_filled</item> <!-- For filled stars -->
+        <item name="colorControlNormal">@color/star_empty</item> <!-- For empty stars -->
+    </style>
+</resources>

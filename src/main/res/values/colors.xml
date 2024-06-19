@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0404</color>
+    <color name="yellow">#FFC107</color>
+    <color name="star_filled">#FFD700</color> <!-- Gold color for filled stars -->
+    <color name="star_empty">#AECCCCCC</color>
+
 </resources>
