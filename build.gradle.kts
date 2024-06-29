@@ -46,6 +46,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 }

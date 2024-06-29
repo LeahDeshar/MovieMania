@@ -1,6 +1,10 @@
 package com.example.moviemania;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import androidx.appcompat.widget.Toolbar;
 
 
 import androidx.activity.EdgeToEdge;
@@ -8,11 +12,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
+import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -24,6 +32,7 @@ import com.example.moviemania.model.Movie;
 import com.example.moviemania.databinding.ActivityMainBinding;
 import com.example.moviemania.view.MovieAdapter;
 import com.example.moviemania.viewmodel.MainActivityViewModel;
+import com.google.android.material.navigation.NavigationView;
 
 
 import java.util.ArrayList;
@@ -40,8 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
+    private Toolbar toolbar;
 
-
+    private NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +62,47 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+        toolbar = findViewById(R.id.toolbar);
+
+
+
+
+        // Initialize DrawerLayout and NavigationView
+        drawerLayout = findViewById(R.id.drawer_layout);
+         navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
+        setSupportActionBar(toolbar);
+        // Setup ActionBarDrawerToggle
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        loadFragment(new FirstFragment());
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int id = item.getItemId();
+                if (id == R.id.settings){
+                    Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+                    loadFragment(new SettingsFragment());
+                }else if(id == R.id.gallery){
+                    loadFragment(new GalleryFragment());
+                } else if (id == R.id.home) {
+                    loadFragment(new HomeFragment());
+
+                } else if (id == R.id.logout) {
+                    Toast.makeText(MainActivity.this, "Logout", Toast.LENGTH_SHORT).show();
+                }
+                drawerLayout.closeDrawer(GravityCompat.START);
+
+
+                return true;
+            }
+        });
+
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
@@ -76,6 +127,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    void loadFragment(Fragment fragment){
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.fragmentContainer , fragment);
+        transaction.commit();
+
+    }
     private void getPopularMovies(){
         viewModel.getAllMovies().observe(this, new Observer<List<Movie>>() {
             @Override
