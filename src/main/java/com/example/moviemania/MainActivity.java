@@ -29,7 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.moviemania.model.Movie;
-import com.example.moviemania.databinding.ActivityMainBinding;
+//import com.example.moviemania.databinding.ActivityMainBinding;
 import com.example.moviemania.view.MovieAdapter;
 import com.example.moviemania.viewmodel.MainActivityViewModel;
 import com.google.android.material.navigation.NavigationView;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     private SwipeRefreshLayout swipeRefreshLayout;
-    private ActivityMainBinding binding;
+//    private ActivityMainBinding binding;
     private MainActivityViewModel viewModel;
 
     private DrawerLayout drawerLayout;
@@ -101,20 +101,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
-
-        getPopularMovies();
-
-        swipeRefreshLayout = binding.swipeLayout;
-        swipeRefreshLayout.setColorSchemeResources(R.color.black);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                getPopularMovies();
-//                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
+//        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//        viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+//
+//        getPopularMovies();
+//
+//        swipeRefreshLayout = binding.swipeLayout;
+//        swipeRefreshLayout.setColorSchemeResources(R.color.black);
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                getPopularMovies();
+////                swipeRefreshLayout.setRefreshing(false);
+//            }
+//        });
 
 
 
@@ -133,26 +133,26 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
     }
-    private void getPopularMovies(){
-        viewModel.getAllMovies().observe(this, new Observer<List<Movie>>() {
-            @Override
-            public void onChanged(List<Movie> moviesFromLiveData){
-                movies = (ArrayList<Movie>) moviesFromLiveData;
-                displayMoviesInRecyclerView();
+//    private void getPopularMovies(){
+//        viewModel.getAllMovies().observe(this, new Observer<List<Movie>>() {
+//            @Override
+//            public void onChanged(List<Movie> moviesFromLiveData){
+//                movies = (ArrayList<Movie>) moviesFromLiveData;
+//                displayMoviesInRecyclerView();
+//
+//            }
+//        });
+//    }
 
-            }
-        });
-    }
-
-    private void displayMoviesInRecyclerView() {
-        recyclerView = binding.recyclerView;
-        movieAdapter = new MovieAdapter(this,movies);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(movieAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-
-//        notify
-        movieAdapter.notifyDataSetChanged();
-
-    }
+//    private void displayMoviesInRecyclerView() {
+//        recyclerView = binding.recyclerView;
+//        movieAdapter = new MovieAdapter(this,movies);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(movieAdapter);
+//        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+//
+////        notify
+//        movieAdapter.notifyDataSetChanged();
+//
+//    }
 }

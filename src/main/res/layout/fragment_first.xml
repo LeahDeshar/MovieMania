@@ -3,29 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
+
+        android:id="@+id/swipeLayout"
+        tools:context=".MainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
 
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeLayout"
-            tools:context=".FirstFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 
 
 
 </FrameLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

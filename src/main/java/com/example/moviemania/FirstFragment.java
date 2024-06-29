@@ -16,7 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.moviemania.databinding.ActivityMainBinding;
+//import com.example.moviemania.databinding.ActivityMainBinding;
 import com.example.moviemania.databinding.FragmentFirstBinding;
 import com.example.moviemania.model.Movie;
 import com.example.moviemania.view.MovieAdapter;
