@@ -8,4 +8,8 @@
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_people"
         android:title="Profile" />
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/ic_people"
+        android:title="Profile" />
 </menu>

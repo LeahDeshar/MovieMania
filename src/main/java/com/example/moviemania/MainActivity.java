@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
         setSupportActionBar(toolbar);
         // Setup ActionBarDrawerToggle
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         loadFragment(new FirstFragment());
@@ -85,16 +85,14 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 int id = item.getItemId();
-                if (id == R.id.settings){
+                if (id == R.id.nav_setting){
                     Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
                     loadFragment(new SettingsFragment());
-                }else if(id == R.id.gallery){
-                    loadFragment(new GalleryFragment());
-                } else if (id == R.id.home) {
+                }else if (id == R.id.nav_home) {
                     loadFragment(new HomeFragment());
 
-                } else if (id == R.id.logout) {
-                    Toast.makeText(MainActivity.this, "Logout", Toast.LENGTH_SHORT).show();
+                } else if (id == R.id.nav_profile) {
+                    Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
 
