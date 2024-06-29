@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         // Initialize DrawerLayout and NavigationView
         drawerLayout = findViewById(R.id.drawer_layout);
          navigationView = findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
         setSupportActionBar(toolbar);
         // Setup ActionBarDrawerToggle
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
