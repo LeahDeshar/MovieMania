@@ -2,12 +2,17 @@ package com.example.moviemania;
 
 import android.os.Bundle;
 
+
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -20,6 +25,7 @@ import com.example.moviemania.databinding.ActivityMainBinding;
 import com.example.moviemania.view.MovieAdapter;
 import com.example.moviemania.viewmodel.MainActivityViewModel;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private ActivityMainBinding binding;
     private MainActivityViewModel viewModel;
+
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle toggle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +68,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+
+
+
     }
+
     private void getPopularMovies(){
         viewModel.getAllMovies().observe(this, new Observer<List<Movie>>() {
             @Override
