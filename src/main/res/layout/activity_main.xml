@@ -61,7 +61,7 @@
                             app:menu="@menu/menu_items"
                             android:fitsSystemWindows="true"
                             android:layout_marginVertical="60dp"
-                            
+
                             android:layout_gravity="start"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
