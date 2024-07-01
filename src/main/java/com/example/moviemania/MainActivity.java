@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        toolbar = findViewById(R.id.toolbar);
+//        toolbar = findViewById(R.id.toolbar);
 
 
 
@@ -74,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
          navigationView = findViewById(R.id.navigation_view);
         setSupportActionBar(toolbar);
         // Setup ActionBarDrawerToggle
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+//        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+//        drawerLayout.addDrawerListener(toggle);
+//        toggle.syncState();
         loadFragment(new FirstFragment());
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
